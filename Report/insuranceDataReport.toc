@@ -1,0 +1,13 @@
+\babel@toc {english}{}
+\contentsline {section}{\numberline {1}Data and related insurance problem}{2}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Dataset description}{2}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}The insurance context}{2}{subsection.1.2}%
+\contentsline {section}{\numberline {2}Preliminary analysis of the data}{2}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Exploratory data analysis}{2}{subsection.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}Distribution of variables and classes balance}{2}{subsubsection.2.1.1}%
+\contentsline {subsubsection}{\numberline {2.1.2}Distribution of numerical features depending on the {\tt OUTCOME} value}{2}{subsubsection.2.1.2}%
+\contentsline {subsubsection}{\numberline {2.1.3}Classes distributions depending on the {\tt OUTCOME} value for categorical features}{2}{subsubsection.2.1.3}%
+\contentsline {subsubsection}{\numberline {2.1.4}Dataset summary and completeness of the dataset}{2}{subsubsection.2.1.4}%
+\contentsline {section}{\numberline {3}Brief description of the models used}{2}{section.3}%
+\contentsline {section}{\numberline {4}Analysis of the results and conclusion}{2}{section.4}%
+\contentsline {section}{\numberline {A}Appendix}{3}{appendix.A}%
