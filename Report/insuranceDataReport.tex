@@ -7,7 +7,7 @@
 \usepackage{graphicx}
 \usepackage{subfigure}
 \usepackage{epsf}
-\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage[left=2.5cm,right=2.5cm,top=2cm,bottom=2cm]{geometry}
 \usepackage{float}
 \usepackage{lmodern} 
 \usepackage[table]{xcolor}
@@ -18,6 +18,7 @@
 \usepackage[cc]{titlepic}
 \usepackage{fancyhdr}
 \usepackage{etoolbox}
+\usepackage{wrapfig}
 
 %ttfamily
 
@@ -87,30 +88,29 @@ The purpose of this section is to give a more quantitative description of the da
     \item Deal with outliers and missing values
     \item Check for the balance of the data with respect to the {\tt OUTCOME} feature
     \item Check for remaining anomalies in the data 
+    \item Select only the relevant features
 \end{itemize}
 
-Using the {\tt summary()} R function, we observe that the variables {\tt CREDIT SCORE} and {\tt ANNUAL MILEAGE} respectively have 982 and 957 NA's values. This represents approximately 1\% of the whole data for each variable, that's why we can consider simply delete them. Thus, the remaining dataset contains 8149 rows. 
+\subsection{Outliers and missing values}
 
-\subsection{Exploratory data analysis}
+First, it is usual to compute some basic statistics about each feature on the whole data, such as the minimum and the maximum values, the mean and median. This allows to notice rough anomalies, such as a negative age values. In this dataset, it appear that no anomalies of this type were found.\\
+\\
+\noindent Descriptive statistics used for this step can be displayed simply using the function {\tt summary()} in R. They are provided along with the number of NA's values for each feature, which corresponds to missing values (NA stands for \textsl{Not Available}). Here, the features {\tt CREDIT SCORE} and {\tt ANNUAL MILEAGE} respectively have 982 and 957 NA's values. This represents approximately 1\% of the whole data for each variable, that's why we can consider simply delete them. Thus, the remaining dataset contains 8149 rows. 
 
-In this part I will conduce an exploratory data analysis focusing on the following points:
-\begin{itemize}
-    \item distribution of variables for numerical ones
-    \item distribution of numerical features depending on the {\tt OUTCOME} value
-    \item classes distributions depending on the {\tt OUTCOME} value for categorical features
-\end{itemize}
+\subsection{Data balance with respect to the {\tt OUTCOME} feature}
 
-\subsubsection{Distribution of variables and classes balance}
+\begin{wrapfigure}{r}{5.5cm}
+    \centering
+    \includegraphics[width=5cm]{outcome.png}
+    \caption{\centering Distribution of the {\tt OUTCOME} feature.}
+\end{wrapfigure}
 
-\subsubsection{Distribution of numerical features depending on the {\tt OUTCOME} value}
-
-The following figure aims at showing how different is the distribution of a certain numerical feature with respect to the {\tt OUTCOME} value. For this purpose, I used violin plots, which are basically boxplots enhanced by showing the shape of the distribution.
-
-\subsubsection{Classes distributions depending on the {\tt OUTCOME} value for categorical features}
-
-\subsubsection{Dataset summary and completeness of the dataset}
+Insurance claims are rare events, so there is typically not a lot of data available about them. This limited availability of data on insurance claims can lead to challenges when using machine learning models, as it is well-known that such models require a significant amount of data in order to perform well. Therefore, if the data is too imbalanced with respect to the {\tt OUTCOME} (far more "no" than "yes"), the model won't be able to learn well about the claim, which is precisely the point here.
 
 
+\subsection{Remaining anomalies in the data}
+
+\subsection{Select only the relevant features}
 
 % -------------------    MODELS    -------------------- % 
 
@@ -182,7 +182,7 @@ PAST ACCIDENTS      & Integer   & From 0 to 15                    \\
 
 \begin{figure}[!h]
     \centering
-    \includegraphics[scale=0.35]{eda.jpeg}
+    \includegraphics[scale=0.35]{eda.png}
     \caption{Histograms of the numerical variables.}
     \label{fig:histograms}
 \end{figure}
