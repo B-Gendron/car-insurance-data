@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.5.12)  27 DEC 2022 15:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.5.12)  27 DEC 2022 16:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -578,7 +578,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has b
                    \relax 
 l.67 \newpage
               [1]
-Underfull \hbox (badness 10000) in paragraph at lines 73--74
+Underfull \hbox (badness 10000) in paragraph at lines 73--76
 
  []
 
@@ -586,43 +586,46 @@ LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 87
 (/usr/local/texlive/2020/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ) [2]
-<eda.jpeg, id=98, 1304.875pt x 903.375pt>
+<eda.jpeg, id=99, 1304.875pt x 903.375pt>
 File: eda.jpeg Graphic file (type jpg)
 <use eda.jpeg>
-Package pdftex.def Info: eda.jpeg  used on input line 168.
+Package pdftex.def Info: eda.jpeg  used on input line 185.
 (pdftex.def)             Requested size: 456.71309pt x 316.18599pt.
-<eda-report.png, id=99, 1376.14125pt x 859.21pt>
-File: eda-report.png Graphic file (type png)
-<use eda-report.png>
-Package pdftex.def Info: eda-report.png  used on input line 176.
-(pdftex.def)             Requested size: 412.84557pt x 257.76498pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 181.
-[3 </Users/barbaragendron/Desktop/Mines_Nancy/3A_Luxembourg/W1 - actuarial science/Project/Report/eda.jpeg>] [4 </Users/barbaragendron/Desktop/Mines_Nancy/3A_Luxembourg/W1 - actuarial science/Project/Report/eda-report.png>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 181.
+<eda-report.png, id=100, 1376.14125pt x 859.21pt>
+File: eda-report.png Graphic file (type png)
+<use eda-report.png>
+Package pdftex.def Info: eda-report.png  used on input line 193.
+(pdftex.def)             Requested size: 412.84557pt x 257.76498pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 198.
+[3] [4 </Users/barbaragendron/Desktop/Mines_Nancy/3A_Luxembourg/W1 - actuarial science/Project/Report/eda.jpeg> </Users/barbaragendron/Desktop/Mines_Nancy/3A_Luxembourg/W1 - actuarial science/Project/Report/eda-report.png>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 198.
  (/Users/barbaragendron/Desktop/Mines_Nancy/3A_Luxembourg/W1 - actuarial science/Project/Report/insuranceDataReport.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 181.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 181.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 198.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 198.
 Package rerunfilecheck Info: File `insuranceDataReport.out' has not changed.
 (rerunfilecheck)             Checksum: 3FF6A05BC3F6BEDD9BB667AB5A8B6B67;1009.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 181.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 198.
  ) 
 Here is how much of TeX's memory you used:
- 11142 strings out of 480608
- 168495 string characters out of 5903630
- 649259 words of memory out of 5000000
- 26765 multiletter control sequences out of 15000+600000
+ 11143 strings out of 480608
+ 168510 string characters out of 5903630
+ 647259 words of memory out of 5000000
+ 26766 multiletter control sequences out of 15000+600000
  584456 words of font info for 60 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,12n,45p,996b,362s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}</usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmro10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on "/Users/barbaragendron/Desktop/Mines_Nancy/3A_Luxembourg/W1 - actuarial science/Project/Report/insuranceDataReport.pdf" (5 pages, 2044076 bytes).
+Output written on "/Users/barbaragendron/Desktop/Mines_Nancy/3A_Luxembourg/W1 - actuarial science/Project/Report/insuranceDataReport.pdf" (5 pages, 2046120 bytes).
 PDF statistics:
- 152 PDF objects out of 1000 (max. 8388607)
- 129 compressed objects within 2 object streams
+ 153 PDF objects out of 1000 (max. 8388607)
+ 130 compressed objects within 2 object streams
  23 named destinations out of 1000 (max. 500000)
  112 words of extra memory for PDF output out of 10000 (max. 10000000)
 

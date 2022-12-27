@@ -55,7 +55,7 @@ frame=\lines
 \begin{document}
 \maketitle
 \tableofcontents
-\vskip100pt
+\vskip150pt
 \section*{Foreword}
 
 This report gives some insights about the use of machine learning techniques in car insurance context. The goal of this work is to leverage data on policyholders related to their driving experience to predict the occurence of a claim. The dataset used to conduct this analysis comes from \href{https://www.kaggle.com/datasets/sagnik1511/car-insurance-data}{this Kaggle page}.\\
@@ -70,16 +70,27 @@ All the technical specifications, the data, all the plots and especially the cod
 
 \subsection{Dataset description}
 
-This dataset contains exactly 10000 samples, and 19 columns.\\
-
-\noindent The credit score reflect the ability for a policyholder to pay for his debts. The higher the score, the more creditworthy the policyholder is. In car insurance, it is has been observed that this parameter has a significant influence on the insurance rate.\\
-{\tt DUIS} refers to DUI, which stands for \textsl{driving under the influence} (whether it be alcohol or drugs).
+The above mentioned dataset contains 19 pieces of information (for now denoted as \textsl{features}) for 10000 policyholders. Among such features, some are closely related to the driving behaviour of the policyholder (driving experience, number of past accidents and speeding violations, \dots), whereas other are more related to its living conditions and family (age, education, income, \dots). Lastly, there is a feature to indicate whether or not the policyholder already experienced a claim, denoted as {\tt OUTCOME}. For a complete description of the features, please refer to table \ref{data-description} in the appendix. \\
+\\
+\noindent Most of the features names are clear enough at first sight but some need to be clarified. The credit score reflect the ability for a policyholder to pay for his debts. The higher the score, the more creditworthy the policyholder is. In car insurance, it is has been observed that this parameter has a significant influence on the insurance rate. The feature {\tt DUIS} refers to DUI, which stands for \textsl{driving under the influence} (whether it be alcohol or drugs).
 
 \subsection{The insurance context}
+
+Machine learning models can be used in the car insurance context for claim prediction by analyzing historical claims data and identifying patterns and trends that can help predict the likelihood of future claims for given policyholders. This can allow insurance companies to better assess risk and price policies accordingly, potentially leading to cost savings for both the insurer and the insured. In this case, the aim is to predict the {\tt OUTCOME} feature from the others, using some machine learning models. 
 
 % -------------------    ANALYSIS    -------------------- % 
 
 \section{Preliminary analysis of the data} \label{analysis}
+
+The purpose of this section is to give a more quantitative description of the data and to go over points of attention to ensure proper modeling.
+\begin{itemize}
+    \item Deal with outliers and missing values
+    \item Check for the balance of the data with respect to the {\tt OUTCOME} feature
+    \item Check for remaining anomalies in the data 
+\end{itemize}
+
+Using the {\tt summary()} R function, we observe that the variables {\tt CREDIT SCORE} and {\tt ANNUAL MILEAGE} respectively have 982 and 957 NA's values. This represents approximately 1\% of the whole data for each variable, that's why we can consider simply delete them. Thus, the remaining dataset contains 8149 rows. 
+
 \subsection{Exploratory data analysis}
 
 In this part I will conduce an exploratory data analysis focusing on the following points:
@@ -99,14 +110,18 @@ The following figure aims at showing how different is the distribution of a cert
 
 \subsubsection{Dataset summary and completeness of the dataset}
 
-Using the {\tt summary()} R function, we observe that the variables {\tt CREDIT SCORE} and {\tt ANNUAL MILEAGE} respectively have 982 and 957 NA's values. This represents approximately 1\% of the whole data for each variable, that's why we can consider simply delete them. Thus, the remaining dataset contains 8149 rows. 
+
+
+% -------------------    MODELS    -------------------- % 
 
 \section{Brief description of the models used} \label{models}
 
 
+% -------------------    RESULTS    -------------------- % 
+
 \section{Analysis of the results and conclusion} \label{results}
 \rowcolors{2}{white}{white}
-\begin{table}[ht]
+\begin{table}[h!]
     \begin{tabular}[t]{|c|ccccc|}
         \rowcolor{orange!30}
 \hline
@@ -124,6 +139,8 @@ XGBoost                     & 0.8164          & 0.8844 & 0.6675 & 0.8534 & \unde
 \end{table}%
 
 \appendix
+
+% -------------------    APPENDIX    -------------------- % 
 
 \section{Appendix}
 
