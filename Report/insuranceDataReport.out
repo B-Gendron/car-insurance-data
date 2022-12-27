@@ -1,0 +1,11 @@
+\BOOKMARK [1][-]{section.1}{Data and related insurance problem}{}% 1
+\BOOKMARK [2][-]{subsection.1.1}{Dataset description}{section.1}% 2
+\BOOKMARK [2][-]{subsection.1.2}{The insurance context}{section.1}% 3
+\BOOKMARK [1][-]{section.2}{Preliminary analysis of the data}{}% 4
+\BOOKMARK [2][-]{subsection.2.1}{Exploratory data analysis}{section.2}% 5
+\BOOKMARK [3][-]{subsubsection.2.1.1}{Distribution of variables and classes balance}{subsection.2.1}% 6
+\BOOKMARK [3][-]{subsubsection.2.1.2}{Distribution of numerical features depending on the OUTCOME value}{subsection.2.1}% 7
+\BOOKMARK [3][-]{subsubsection.2.1.3}{Classes distributions depending on the OUTCOME value for categorical features}{subsection.2.1}% 8
+\BOOKMARK [3][-]{subsubsection.2.1.4}{Dataset summary and completeness of the dataset}{subsection.2.1}% 9
+\BOOKMARK [1][-]{section.3}{Brief description of the models used}{}% 10
+\BOOKMARK [1][-]{section.4}{Analysis of the results and conclusion}{}% 11

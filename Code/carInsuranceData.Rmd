@@ -1,0 +1,246 @@
+---
+title: "Application of machine learning methods for claim prediction in car insurance data"
+author: "Barbara Gendron-Audebert"
+date: "December 27th, 2022"
+---
+
+# Preliminary imports and data preparation
+
+```{r, echo=TRUE, warning=FALSE, message=FALSE}
+library(caret)
+library(corrplot)
+library(cowplot)
+library(data.table)
+library(ggplot2)
+library(gridExtra)
+library(mlr)
+library(mltools)
+library(randomForest)
+library(rpart)
+library(rpart.plot)
+library(tidyverse)
+library(xgboost)
+```
+
+Now, we can import data and start dealing with feature formats so these are relevant regarding the represented quantities.
+
+```{r eval=TRUE}
+data <- read.table("Car_Insurance_Claim.csv", header=T, sep=',')
+data = data%>%mutate_if(is.character, as.factor)
+data$VEHICLE_OWNERSHIP = as.factor(data$VEHICLE_OWNERSHIP)
+data$MARRIED = as.factor(data$MARRIED)
+data$CHILDREN = as.factor(data$CHILDREN)
+data$OUTCOME = as.factor(data$OUTCOME)
+data <- na.omit(data)
+summary(data)
+```
+
+# Exploratory data analysis
+
+## Numerical features
+
+### Histograms
+
+```{r eval=TRUE}
+# separate plot space in 2x3 blocks
+op <- par(mfrow=c(2,3))
+
+# plot histograms
+hist(data$CREDIT_SCORE, main="Credit score", xlab="Value")
+hist(data$ANNUAL_MILEAGE, main="Annual mileage", xlab="Value")
+hist(data$SPEEDING_VIOLATIONS, main = "Speeding violations", xlab="Value")
+hist(data$DUIS, main="Duis", xlab="Value")
+hist(data$PAST_ACCIDENTS, main="Past accidents", xlab="Value")
+hist(as.numeric(levels(data$OUTCOME))[data$OUTCOME], main = "Outcome", xlab="Value")
+```
+
+### Violin plots
+
+```{r}
+cs <- ggplot(data, aes(as.factor(OUTCOME), CREDIT_SCORE)) + geom_violin(fill="pink") + geom_boxplot(width=0.1) + labs(x="Outcome", y="Credit score")
+am <- ggplot(data, aes(as.factor(OUTCOME), ANNUAL_MILEAGE)) + geom_violin(fill="pink") + geom_boxplot(width=0.1) + labs(x="Outcome", y="Annual  mileage")
+sv <- ggplot(data, aes(as.factor(OUTCOME), SPEEDING_VIOLATIONS)) + geom_violin(fill="pink") + geom_boxplot(width=0.1) + labs(x="Outcome", y="Speeding violations")
+du <- ggplot(data, aes(as.factor(OUTCOME), DUIS)) + geom_violin(fill="pink") + geom_boxplot(width=0.1) + labs(x="Outcome", y="Duis")
+pa <- ggplot(data, aes(as.factor(OUTCOME), PAST_ACCIDENTS)) + geom_violin(fill="pink") + geom_boxplot(width=0.1) + labs(x="Outcome", y="Past accidents")
+grid.arrange(cs, am, sv, du, pa, ncol=3, nrow=2)
+```
+
+## Categorical features
+
+```{r, fig.width=16, fig.height=8}
+op <- par(mfrow=c(2,3))
+ge <- table(data$GENDER, data$OUTCOME)
+plot(ge, main="Outcome by gender", col=c('turquoise', 'pink'), cex=1.5)
+de <- table(data$DRIVING_EXPERIENCE, data$OUTCOME)
+plot(de, main="Outcome by driving experience",col=c('turquoise', 'pink'), cex=1.5)
+ag <- table(data$AGE, data$OUTCOME)
+plot(ag, main="Outcome by age", col=c('turquoise', 'pink'), cex=1.5)
+vo <- table(data$VEHICLE_OWNERSHIP, data$OUTCOME)
+plot(vo, main="Outcome by vehicle ownership", col=c('turquoise', 'pink'), cex=1.5)
+ic <- table(data$INCOME, data$OUTCOME)
+plot(ic, main="Outcome by income", col=c('turquoise', 'pink'), cex=1.5)
+vy <- table(data$VEHICLE_YEAR, data$OUTCOME)
+plot(vy, main="Outcome by vehicle year", col=c('turquoise', 'pink'), cex=1.5)
+```
+
+# Feature engineering
+
+```{r}
+# filter for numeric data
+num_data <- data %>% select(where(is.numeric))
+
+# save the corrplot in a pdf file
+corrplot(cor(num_data), type = "upper", is.corr = FALSE, method = "number", outline = TRUE, diag = FALSE)
+```
+
+Now, let's have a look the correlations of all the variables with the variable `OUTCOME`. The first step is the perform one-hot encoding on categorical features. Afterwards, it is possible to compute the correlation matrix and select the column (or line, the matrix is symmetric) corresponding to the `OUTCOME` variable. Then, converting this column to a data frame, it is possible to display the correlation values by decreasing order of their absolute value. This way, the higher is the feature in the list, the more correlated to `OUTCOME`.
+
+```{r, echo=TRUE, warning=FALSE, message=FALSE}
+# Compute the list of correlation values
+newdata <- one_hot(as.data.table(data))
+mat <- cor(newdata)
+correlations <- as.data.frame(mat[,37])
+names(correlations) <- c("Outcome")
+correlations <- correlations %>% arrange(desc(abs(Outcome)))
+```
+
+```{r}
+# Display all variables which correlation with OUTCOME is more than 20%
+select <- correlations %>% 
+              filter(abs(Outcome)>0.2 & abs(Outcome) != 1) 
+select
+```
+
+According to this correlation analysis, here are the variables that seems relevant to keep:  
+- `AGE`  
+- `CREDIT_SCORE`  
+- `MARRIED`  
+- `SPEEDING_VIOLATIONS`  
+- `DRIVING_EXPERIENCE`  
+- `VEHICLE_OWNERSHIP`  
+- `CHILDREN`  
+- `DUIS`  
+- `INCOME`  
+- `VEHICLE_YEAR`  
+- `ANNUAL_MILEAGE`  
+- `PAST_ACCIDENTS`  
+- `OUTCOME`  
+
+```{r}
+data_processed <- data[,!names(data) %in% c('GENDER', 'POSTAL_CODE', 'EDUCATION', 'RACE', 'ID', 'VEHICLE_TYPE')]
+summary(data_processed)
+```
+
+# Machine learning models
+
+## Prepare data for model training and evaluation
+
+```{r}
+set.seed(42) # set random seed for reproducibility
+
+# Train/test split
+trainIndex = sample(1:nrow(data_processed), size = round(0.7*nrow(data_processed)), replace=FALSE)
+train = data_processed[trainIndex ,]
+test = data_processed[-trainIndex ,]
+```
+
+## Models
+
+### 1) Logistic regression
+
+```{r}
+logreg <- glm(OUTCOME~., data=train, family=binomial)
+summary(logreg)
+proba_logreg <- predict(logreg, newdata=test, type="response")
+pred_logreg <- ifelse(proba_logreg<0.5, 0, 1)
+pred_logreg <- factor(pred_logreg)
+MC_logreg <- confusionMatrix(as.factor(test$OUTCOME), pred_logreg)
+MC_logreg
+```
+
+### 2) Decision Tree Classifier
+
+```{r fig.align='center'}
+decision_tree <- rpart(OUTCOME~., data=train)
+rpart.plot(decision_tree)
+```
+
+```{r}
+pred_tree <- predict(object=decision_tree, newdata=test, type="class")
+MC_tree <- confusionMatrix(test$OUTCOME, pred_tree)
+```
+
+### 3) Random Forest Classifier
+
+```{r}
+rf <- randomForest(as.factor(OUTCOME)~., data=train, proximity=TRUE)
+pred_rf <- predict(rf, test)
+MC_rf <- confusionMatrix(test$OUTCOME, pred_rf)
+```
+
+### 4) XGBoost model
+
+For this part, the following code is inspired of [https://www.kaggle.com/code/ihorhetman/xgboost-model-for-car-insurance-prediction](this source).
+
+To use this model, some more preprocessing is required. First, it is necessary to convert `OUTCOME` to numeric values in train and test set
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+train$OUTCOME = as.numeric(levels(train$OUTCOME))[train$OUTCOME]
+test$OUTCOME = as.numeric(levels(test$OUTCOME))[test$OUTCOME]
+```
+
+Then, another requirement is to convert train and test set to matrix. Here, it is important to not include the `OUTCOME` variable, because it will be stored in another variable that indicates the labels. 
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE}
+X_train <- model.matrix(~ INCOME + VEHICLE_YEAR + 
+                    SPEEDING_VIOLATIONS  + AGE + DRIVING_EXPERIENCE + 
+                    CREDIT_SCORE + MARRIED + ANNUAL_MILEAGE + DUIS + 
+                    VEHICLE_OWNERSHIP + CHILDREN +
+                    PAST_ACCIDENTS,data=train)
+
+X_test <- model.matrix(~ INCOME + VEHICLE_YEAR + 
+                          SPEEDING_VIOLATIONS  + AGE + DRIVING_EXPERIENCE + 
+                          CREDIT_SCORE + MARRIED + ANNUAL_MILEAGE + DUIS + 
+                          VEHICLE_OWNERSHIP + CHILDREN +
+                          PAST_ACCIDENTS,data=test)
+``` 
+
+Finally, it is time to process the labels and the datasets to perform some cross-validation. After this step, the XGBoost model is ready to be trained efficiently.
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+labels <- train$OUTCOME
+ts_label <- test$OUTCOME
+
+dtrain <- xgb.DMatrix(data = X_train, label = labels) 
+dtest <- xgb.DMatrix(data = X_test, label=ts_label)
+
+xgbcv <- xgb.cv(data = dtrain, nrounds = 100, 
+                nfold = 5, showsd = T, stratified = T, 
+                print_every_n = 10, early_stopping_rounds = 20, 
+                maximize = F)
+```
+
+Let's train the XGBoost model and evaluate it on the test set in order to display evaluation metrics:
+
+```{r}
+xgb1 = xgb.train(data = dtrain, 
+                 max.depth = 2, 
+                 eta = 1, 
+                 nthread = 2, 
+                 nrounds = 10, 
+                 objective = "binary:logistic", 
+                 verbose = 1)
+
+xgbpred1 <- predict(xgb1,dtest)
+xgbpred_res1 <- as.numeric(xgbpred1 > 0.5,1,0)
+
+MC_xgb = confusionMatrix(as.factor(xgbpred_res1), as.factor(ts_label))
+MC_xgb
+```
+
+In addition to previous results, I provide here the feature importances.
+
+```{r, fig.align='center'}
+mat <- xgb.importance (feature_names = colnames(X_train), model = xgb1)
+xgb.plot.importance (importance_matrix = mat)
+```
