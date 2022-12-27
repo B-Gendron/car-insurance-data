@@ -7,6 +7,6 @@
 \contentsline {subsection}{\numberline {2.2}Data balance with respect to the {\tt OUTCOME} feature}{2}{subsection.2.2}%
 \contentsline {subsection}{\numberline {2.3}Remaining anomalies in the data}{3}{subsection.2.3}%
 \contentsline {subsection}{\numberline {2.4}Select only the relevant features}{3}{subsection.2.4}%
-\contentsline {section}{\numberline {3}Brief description of the models used}{3}{section.3}%
-\contentsline {section}{\numberline {4}Analysis of the results and conclusion}{3}{section.4}%
-\contentsline {section}{\numberline {A}Appendix}{3}{appendix.A}%
+\contentsline {section}{\numberline {3}Brief description of the models used}{4}{section.3}%
+\contentsline {section}{\numberline {4}Analysis of the results and conclusion}{4}{section.4}%
+\contentsline {section}{\numberline {A}Appendix}{4}{appendix.A}%

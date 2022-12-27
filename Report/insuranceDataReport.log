@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.5.12)  27 DEC 2022 16:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.5.12)  27 DEC 2022 17:41
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -590,57 +590,129 @@ Underfull \hbox (badness 10000) in paragraph at lines 74--77
 
  []
 
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 88.
-(/usr/local/texlive/2020/texmf-dist/tex/latex/lm/ts1lmr.fd
-File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-Underfull \hbox (badness 10000) in paragraph at lines 96--99
+
+Underfull \hbox (badness 10000) in paragraph at lines 90--93
 
  []
 
-<outcome.png, id=87, 602.25pt x 508.90125pt>
+<outcome.png, id=88, 556.0775pt x 481.8pt>
 File: outcome.png Graphic file (type png)
 <use outcome.png>
-Package pdftex.def Info: outcome.png  used on input line 104.
-(pdftex.def)             Requested size: 142.26378pt x 120.21303pt.
+Package pdftex.def Info: outcome.png  used on input line 100.
+(pdftex.def)             Requested size: 156.49014pt x 135.58678pt.
 [2]
-<eda.png, id=96, 1078.0275pt x 746.79pt>
+
+Package wrapfig Warning: Stationary wrapfigure forced to float on input line 105.
+
+
+Underfull \hbox (badness 1895) in paragraph at lines 107--108
+[]\T1/lmr/m/n/10.95 A fairly im-por-tant step at this stage would be
+ []
+
+
+Underfull \hbox (badness 3138) in paragraph at lines 107--108
+\T1/lmr/m/n/10.95 de-tected at first glance. One typ-i-cal way to
+ []
+
+
+Underfull \hbox (badness 1077) in paragraph at lines 107--108
+\T1/lmr/m/n/10.95 han-dle that is to look at the val-ues dis-tri-bu-tion
+ []
+
+
+Underfull \hbox (badness 1527) in paragraph at lines 107--108
+\T1/lmr/m/n/10.95 for each fea-ture and check for rel-e-vancy ac-cord-
+ []
+
+
+Underfull \hbox (badness 1406) in paragraph at lines 107--108
+\T1/lmr/m/n/10.95 ing to what the fea-ture de-scribes in real world.
+ []
+
+
+Underfull \hbox (badness 2443) in paragraph at lines 107--108
+\T1/lmr/m/n/10.95 Some plots are pro-vided in the ap-pendix: fig-
+ []
+
+
+Underfull \hbox (badness 3291) in paragraph at lines 107--108
+\T1/lmr/m/n/10.95 ure []3[] shows his-tograms for quan-ti-ta-tive val-ues,
+ []
+
+
+Underfull \hbox (badness 1577) in paragraph at lines 107--108
+\T1/lmr/m/n/10.95 This last graph is also use-ful to check for bal-
+ []
+
+
+Underfull \hbox (badness 1033) in paragraph at lines 107--108
+\T1/lmr/m/n/10.95 ance of data, and gives some in-sights about the
+ []
+
+
+Underfull \hbox (badness 2865) in paragraph at lines 107--108
+\T1/lmr/m/n/10.95 rel-e-vancy of the fea-tures. From this last ex-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 107--108
+
+ []
+
+<correlations.png, id=100, 225.84375pt x 231.86626pt>
+File: correlations.png Graphic file (type png)
+<use correlations.png>
+Package pdftex.def Info: correlations.png  used on input line 117.
+(pdftex.def)             Requested size: 112.92159pt x 115.93283pt.
+<correlations-flop10.png, id=101, 238.8925pt x 210.7875pt>
+File: correlations-flop10.png Graphic file (type png)
+<use correlations-flop10.png>
+Package pdftex.def Info: correlations-flop10.png  used on input line 122.
+(pdftex.def)             Requested size: 130.65129pt x 115.28056pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[3 </Users/barbaragendron/Desktop/Mines_Nancy/3A_Luxembourg/W1 - actuarial science/Project/Report/outcome.png> </Users/barbaragendron/Desktop/Mines_Nancy/3A_Luxembourg/W1 - actuarial science/Project/Report/correlations.png> </Users/barbaragendron/Desktop/Mines_Nancy/3A_Luxembourg/W1 - actuarial science/Project/Report/correlations-flop10.png>]
+<eda.png, id=117, 1078.0275pt x 746.79pt>
 File: eda.png Graphic file (type png)
 <use eda.png>
-Package pdftex.def Info: eda.png  used on input line 185.
+Package pdftex.def Info: eda.png  used on input line 202.
 (pdftex.def)             Requested size: 377.31528pt x 261.3804pt.
-<eda-report.png, id=97, 1376.14125pt x 859.21pt>
-File: eda-report.png Graphic file (type png)
-<use eda-report.png>
-Package pdftex.def Info: eda-report.png  used on input line 193.
-(pdftex.def)             Requested size: 412.84557pt x 257.76498pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 198.
-[3 </Users/barbaragendron/Desktop/Mines_Nancy/3A_Luxembourg/W1 - actuarial science/Project/Report/outcome.png> </Users/barbaragendron/Desktop/Mines_Nancy/3A_Luxembourg/W1 - actuarial science/Project/Report/eda.png>] [4 </Users/barbaragendron/Desktop/Mines_Nancy/3A_Luxembourg/W1 - actuarial science/Project/Report/eda-report.png>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 198.
+<eda-report.png, id=118, 1376.14125pt x 859.21pt>
+File: eda-report.png Graphic file (type png)
+<use eda-report.png>
+Package pdftex.def Info: eda-report.png  used on input line 210.
+(pdftex.def)             Requested size: 412.84557pt x 257.76498pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 215.
+[4] [5 </Users/barbaragendron/Desktop/Mines_Nancy/3A_Luxembourg/W1 - actuarial science/Project/Report/eda.png> </Users/barbaragendron/Desktop/Mines_Nancy/3A_Luxembourg/W1 - actuarial science/Project/Report/eda-report.png>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 215.
  (/Users/barbaragendron/Desktop/Mines_Nancy/3A_Luxembourg/W1 - actuarial science/Project/Report/insuranceDataReport.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 198.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 198.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 215.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 215.
 Package rerunfilecheck Info: File `insuranceDataReport.out' has not changed.
 (rerunfilecheck)             Checksum: 27717C818241480687F38906DED34BDF;799.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 198.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 215.
  ) 
 Here is how much of TeX's memory you used:
- 11203 strings out of 480608
- 169291 string characters out of 5903630
- 649523 words of memory out of 5000000
- 26821 multiletter control sequences out of 15000+600000
- 584774 words of font info for 61 fonts, out of 8000000 for 9000
+ 11190 strings out of 480608
+ 168802 string characters out of 5903630
+ 650523 words of memory out of 5000000
+ 26806 multiletter control sequences out of 15000+600000
+ 584409 words of font info for 60 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,12n,45p,1016b,355s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}</usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmro10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmtt12.pfb>
-Output written on "/Users/barbaragendron/Desktop/Mines_Nancy/3A_Luxembourg/W1 - actuarial science/Project/Report/insuranceDataReport.pdf" (5 pages, 2240925 bytes).
+ 41i,12n,45p,1016b,362s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}</usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmro10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmtt12.pfb>
+Output written on "/Users/barbaragendron/Desktop/Mines_Nancy/3A_Luxembourg/W1 - actuarial science/Project/Report/insuranceDataReport.pdf" (6 pages, 2326275 bytes).
 PDF statistics:
- 156 PDF objects out of 1000 (max. 8388607)
- 129 compressed objects within 2 object streams
- 23 named destinations out of 1000 (max. 500000)
- 109 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 182 PDF objects out of 1000 (max. 8388607)
+ 148 compressed objects within 2 object streams
+ 27 named destinations out of 1000 (max. 500000)
+ 119 words of extra memory for PDF output out of 10000 (max. 10000000)
 
