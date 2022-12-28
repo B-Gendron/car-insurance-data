@@ -139,7 +139,7 @@ summary(data_processed)
 set.seed(42) # set random seed for reproducibility
 
 # Train/test split
-trainIndex = sample(1:nrow(data_processed), size = round(0.7*nrow(data_processed)), replace=FALSE)
+trainIndex = sample(1:nrow(data_processed), size = round(0.8*nrow(data_processed)), replace=FALSE)
 train = data_processed[trainIndex ,]
 test = data_processed[-trainIndex ,]
 ```

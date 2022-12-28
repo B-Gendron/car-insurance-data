@@ -7,7 +7,7 @@
 \usepackage{graphicx}
 \usepackage{subfigure}
 \usepackage{epsf}
-\usepackage[left=2.5cm,right=2.5cm,top=2cm,bottom=2cm]{geometry}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
 \usepackage{float}
 \usepackage{lmodern} 
 \usepackage[table]{xcolor}
@@ -109,24 +109,31 @@ A fairly important step at this stage would be to check the data for more subtle
 
 \subsection{Select only the relevant features}
 
-Amongst the 18 features given to describe each policyholder, all are not bound to be helpful when predicted the claim probability. In addition, in order to meet the constraints of the insurance field, some features must be removed because some regulations prohibit their use. This way, let's remove the {\tt GENDER} feature, along with {\tt RACE} for ethical reasons. Now, what remains is to identify the useful features regarding the objective. A typical method for this is to look at the correlation between the {\tt OUTCOME} and the other feature. A correlation coefficient is a number in $[-1,1]$. The higher it is in absolute value, the stronger is the link between the two parameters. Figure \ref{fig:corr} represents the top 10 features most correlated with {\tt OUTCOME}.
+Amongst the 18 features given to describe each policyholder, all are not bound to be helpful when predicted the claim probability. In addition, in order to meet the constraints of the insurance field, some features must be removed because some regulations prohibit their use. This way, let's remove the {\tt GENDER} feature, along with {\tt RACE} for ethical reasons. Now, what remains is to identify the useful features regarding the objective. A typical method for this is to look at the correlation between the {\tt OUTCOME} and the other feature. A correlation coefficient is a number in $[-1,1]$. The higher it is in absolute value, the stronger is the link between the two parameters. Figure \ref{fig:corr} represents the top 10 and flop 10 features most correlated with {\tt OUTCOME}.
 
 \begin{figure}[h!]
     \centering
     \begin{subfigure}
     \centering
-    \includegraphics[scale=0.5]{correlations.png}
+    \includegraphics[scale=0.3]{correlations-top10.png}
     \end{subfigure}
     \hskip50pt
     \begin{subfigure}
         \centering
-        \includegraphics[scale=0.5469]{correlations-flop10.png}
+        \includegraphics[scale=0.33]{correlations-flop10.png}
     \end{subfigure}
     \caption{\centering Top 10 (left) and flop 10 (right) features most correlated with {\tt OUTCOME}}
     \label{fig:corr}
 \end{figure}
 
-\noindent This correlation analysis gives a first insight of which features can be dropped (those that are less correlated with {\tt OUTCOME}). Finally, the dropped features are {\tt GENDER}, {\tt POSTAL\_CODE}, {\tt EDUCATION}, {\tt RACE}, {\tt ID} and {\tt VEHICLE\_TYPE}.
+\noindent This correlation analysis gives a first insight of which features can be dropped (those that are less correlated with {\tt OUTCOME}). Finally, the dropped features are {\tt GENDER}, {\tt POSTAL\_CODE}, {\tt EDUCATION}, {\tt RACE}, {\tt ID} and {\tt VEHICLE\_TYPE}. Figure \ref{fig:head-data} provides a view of the data after all these steps.\newline
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{head-data.png}
+    \caption{A view of the 5 first samples of the processed dataset.}
+    \label{fig:head-data}
+\end{figure}
 
 % -------------------    MODELS    -------------------- % 
 
@@ -249,12 +256,12 @@ To evaluate the performances of models on a binary classification task, a broadl
     \begin{tabular}[t]{|c|cccc|}
         \rowcolor{orange!30}
 \hline
-\textbf{Model} & \textbf{Accuracy} & \textbf{Sensitivity} & \textbf{Specificity} & \textbf{False neg.} \\
+\textbf{Model} & \textbf{Accuracy} & \textbf{Sensitivity} & \textbf{Specificity} & \textbf{False negative rate} \\
 \hline
 Logistic regression         & 0.8313             & 0.8682             & \underline{0.7399} & \underline{0.2601} \\
 Decision Tree Classifier    & 0.8160             & 0.8553             & 0.7165             & 0.2835 \\
 Random Forest Classifier    & \underline{0.8356} & 0.8821             & 0.7311             & 0.2681 \\
-XGBoost                     & 0.8356             & \underline{0.9044} & 0.6800             & 0.3200 \\
+XGBoost                     & \underline{0.8356}             & \underline{0.9044} & 0.6800             & 0.3200 \\
 \hline
     \end{tabular}
 \centering
@@ -262,6 +269,15 @@ XGBoost                     & 0.8356             & \underline{0.9044} & 0.6800  
 \label{metrics}
 \end{table}%
 
+\subsection{Interpretation and conclusion}
+
+The accuracies are not great but still satisfying regarding the number of samples in the dataset which is relatively small with a bit more than 8000 samples. In France, an insurance company can have between 1 and 6 million policyholders. In Luxembourg, the biggest insurance company, Foyer S.A., had 276 527 policyholders in 2018 (see \href{https://fr.wikipedia.org/wiki/Liste_de_groupes_d%27assurance}{this French page} for more information). Thus, it seems like the models would be better in a real-life context.\\
+\\
+\noindent Nevertheless, the false negatives are difficult to handle for all the models. As we can see both on the confusion matrices and on the last column of table \ref{metrics}, the rate varies very little and remains quite high. Moreover, the use of sophisticated models such as XGBoost may not be justified, as it improves accuracy and sensitivity, but seems to damage the false negative rate. Among these models, one can argue that the best choice would be the \textbf{random forest classifier}, as it is a relevant compromise between accuracy and false negative rate. \\
+\\
+\noindent Finally, what we can conclude is than such models are not yet adapted to be deployed in a real-life insurance scenario, as they are likely to underestimate the occurence of a claim. To counter this problem, it might be interesting to find a more balanced data set between the two outcomes. Eventually, the original assumption of a not so unbalanced distribution of values may need to be revisited, as the discrepancy present prevents the model from accurately understanding the case where the policyholder experiences a claim.  
+
+\newpage
 \appendix
 
 % -------------------    APPENDIX    -------------------- % 
