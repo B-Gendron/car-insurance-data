@@ -13,4 +13,6 @@
 \contentsline {subsection}{\numberline {3.3}Random forest classifier}{4}{subsection.3.3}%
 \contentsline {subsection}{\numberline {3.4}XGBoost}{5}{subsection.3.4}%
 \contentsline {section}{\numberline {4}Analysis of the results and conclusion}{5}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Training and testing processes}{5}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Confusion matrices and evaluation metrics}{5}{subsection.4.2}%
 \contentsline {section}{\numberline {A}Appendix}{5}{appendix.A}%

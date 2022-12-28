@@ -12,4 +12,6 @@
 \BOOKMARK [2][-]{subsection.3.3}{Random forest classifier}{section.3}% 12
 \BOOKMARK [2][-]{subsection.3.4}{XGBoost}{section.3}% 13
 \BOOKMARK [1][-]{section.4}{Analysis of the results and conclusion}{}% 14
-\BOOKMARK [1][-]{appendix.A}{Appendix}{}% 15
+\BOOKMARK [2][-]{subsection.4.1}{Training and testing processes}{section.4}% 15
+\BOOKMARK [2][-]{subsection.4.2}{Confusion matrices and evaluation metrics}{section.4}% 16
+\BOOKMARK [1][-]{appendix.A}{Appendix}{}% 17
