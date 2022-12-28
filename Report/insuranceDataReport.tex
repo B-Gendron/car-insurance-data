@@ -19,6 +19,7 @@
 \usepackage{fancyhdr}
 \usepackage{etoolbox}
 \usepackage{wrapfig}
+\usepackage{booktabs}
 
 %ttfamily
 
@@ -163,6 +164,68 @@ Finally, XGBoost (eXtreme Gradient Boosting) is a popular and powerful machine l
 % -------------------    RESULTS    -------------------- % 
 
 \section{Analysis of the results and conclusion} \label{results}
+
+\begin{center}
+    \begin{figure}[h!]
+\begin{tabular}{cc|cc}
+    \multicolumn{1}{c}{} &\multicolumn{1}{c}{} &\multicolumn{2}{c}{Predicted} \\ 
+    \multicolumn{1}{c}{} & 
+    \multicolumn{1}{c|}{} & 
+    \multicolumn{1}{c}{0} & 
+    \multicolumn{1}{c}{1} \\ \hline
+    \multirow[c]{2}{*}{\rotatebox[origin=tr]{90}{Actual}}
+    & 0  & 1485 & 193   \\[1.5ex]
+    & 1  & 236   & 531 \\ \hline
+    \multicolumn{1}{c}{} &\multicolumn{1}{c}{} &\multicolumn{2}{c}{} \\
+    \multicolumn{4}{c}{\textbf{Logistic regression}}
+    \end{tabular}
+    \quad% ---------------------------
+    \begin{tabular}{@{}cc|cc@{}}
+    \multicolumn{1}{c}{} &\multicolumn{1}{c}{} &\multicolumn{2}{c}{Predicted} \\ 
+    \multicolumn{1}{c}{} & 
+    \multicolumn{1}{c|}{} & 
+    \multicolumn{1}{c}{0} & 
+    \multicolumn{1}{c}{1} \\ 
+    \cline{2-4}
+    \multirow[c]{2}{*}{\rotatebox[origin=tr]{90}{Actual}}
+    & 0  & 1484 & 194   \\[1.5ex]
+    & 1  & 255   & 512 \\
+    \cline{2-4}
+    \multicolumn{1}{c}{} &\multicolumn{1}{c}{} &\multicolumn{2}{c}{} \\
+    \multicolumn{4}{c}{\textbf{Decision tree}}
+    \end{tabular}
+    \quad
+    \begin{tabular}{cc|cc}
+        \multicolumn{1}{c}{} &\multicolumn{1}{c}{} &\multicolumn{2}{c}{Predicted} \\ 
+        \multicolumn{1}{c}{} & 
+        \multicolumn{1}{c|}{} & 
+        \multicolumn{1}{c}{0} & 
+        \multicolumn{1}{c}{1} \\ \hline
+        \multirow[c]{2}{*}{\rotatebox[origin=tr]{90}{Actual}}
+        & 0  & 1461 & 217   \\[1.5ex]
+        & 1  & 214   & 553 \\ \hline
+        \multicolumn{1}{c}{} &\multicolumn{1}{c}{} &\multicolumn{2}{c}{} \\
+        \multicolumn{4}{c}{\textbf{Random forest}}
+        \end{tabular}
+        \quad% ---------------------------
+        \begin{tabular}{@{}cc|cc@{}}
+        \multicolumn{1}{c}{} &\multicolumn{1}{c}{} &\multicolumn{2}{c}{Predicted} \\ 
+        \multicolumn{1}{c}{} & 
+        \multicolumn{1}{c|}{} & 
+        \multicolumn{1}{c}{0} & 
+        \multicolumn{1}{c}{1} \\ 
+        \cline{2-4}
+        \multirow[c]{2}{*}{\rotatebox[origin=tr]{90}{Actual}}
+        & 0  & 1484 & 255  \\[1.5ex]
+        & 1  & 194   & 512 \\
+        \cline{2-4}
+        \multicolumn{1}{c}{} &\multicolumn{1}{c}{} &\multicolumn{2}{c}{} \\
+        \multicolumn{4}{c}{\textbf{XGBoost}}
+        \end{tabular}
+\caption{\centering Confusion matrices for the four models. 0 corresponds to no claim.}
+    \end{figure}
+    \end{center}
+
 \rowcolors{2}{white}{white}
 \begin{table}[h!]
     \begin{tabular}[t]{|c|ccccc|}
