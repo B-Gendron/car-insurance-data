@@ -7,5 +7,9 @@
 \BOOKMARK [2][-]{subsection.2.3}{Remaining anomalies in the data}{section.2}% 7
 \BOOKMARK [2][-]{subsection.2.4}{Select only the relevant features}{section.2}% 8
 \BOOKMARK [1][-]{section.3}{Brief description of the models used}{}% 9
-\BOOKMARK [1][-]{section.4}{Analysis of the results and conclusion}{}% 10
-\BOOKMARK [1][-]{appendix.A}{Appendix}{}% 11
+\BOOKMARK [2][-]{subsection.3.1}{Logistic regression}{section.3}% 10
+\BOOKMARK [2][-]{subsection.3.2}{Decision tree classifier}{section.3}% 11
+\BOOKMARK [2][-]{subsection.3.3}{Random forest classifier}{section.3}% 12
+\BOOKMARK [2][-]{subsection.3.4}{XGBoost}{section.3}% 13
+\BOOKMARK [1][-]{section.4}{Analysis of the results and conclusion}{}% 14
+\BOOKMARK [1][-]{appendix.A}{Appendix}{}% 15

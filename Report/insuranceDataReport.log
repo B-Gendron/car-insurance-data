@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.5.12)  27 DEC 2022 17:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.5.12)  28 DEC 2022 11:14
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -554,7 +554,7 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 57.
  (/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-<cover-image.png, id=48, 1024.82875pt x 694.595pt>
+<cover-image.png, id=64, 1024.82875pt x 694.595pt>
 File: cover-image.png Graphic file (type png)
 <use cover-image.png>
 Package pdftex.def Info: cover-image.png  used on input line 57.
@@ -595,7 +595,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 90--93
 
  []
 
-<outcome.png, id=88, 556.0775pt x 481.8pt>
+<outcome.png, id=108, 556.0775pt x 481.8pt>
 File: outcome.png Graphic file (type png)
 <use outcome.png>
 Package pdftex.def Info: outcome.png  used on input line 100.
@@ -659,62 +659,63 @@ Underfull \hbox (badness 10000) in paragraph at lines 107--108
 
  []
 
-<correlations.png, id=100, 225.84375pt x 231.86626pt>
+<correlations.png, id=120, 225.84375pt x 231.86626pt>
 File: correlations.png Graphic file (type png)
 <use correlations.png>
 Package pdftex.def Info: correlations.png  used on input line 117.
 (pdftex.def)             Requested size: 112.92159pt x 115.93283pt.
-<correlations-flop10.png, id=101, 238.8925pt x 210.7875pt>
+<correlations-flop10.png, id=121, 238.8925pt x 210.7875pt>
 File: correlations-flop10.png Graphic file (type png)
 <use correlations-flop10.png>
 Package pdftex.def Info: correlations-flop10.png  used on input line 122.
 (pdftex.def)             Requested size: 130.65129pt x 115.28056pt.
-<decision-tree-fit.png, id=102, 878.28125pt x 540.0175pt>
+[3 </Users/barbaragendron/Desktop/Mines_Nancy/3A_Luxembourg/W1 - actuarial science/Project/Report/outcome.png> </Users/barbaragendron/Desktop/Mines_Nancy/3A_Luxembourg/W1 - actuarial science/Project/Report/correlations.png> </Users/barbaragendron/Desktop/Mines_Nancy/3A_Luxembourg/W1 - actuarial science/Project/Report/correlations-flop10.png>]
+<decision-tree-fit.png, id=138, 878.28125pt x 540.0175pt>
 File: decision-tree-fit.png Graphic file (type png)
 <use decision-tree-fit.png>
-Package pdftex.def Info: decision-tree-fit.png  used on input line 138.
+Package pdftex.def Info: decision-tree-fit.png  used on input line 149.
 (pdftex.def)             Requested size: 455.24411pt x 279.91255pt.
-[3 </Users/barbaragendron/Desktop/Mines_Nancy/3A_Luxembourg/W1 - actuarial science/Project/Report/outcome.png> </Users/barbaragendron/Desktop/Mines_Nancy/3A_Luxembourg/W1 - actuarial science/Project/Report/correlations.png> </Users/barbaragendron/Desktop/Mines_Nancy/3A_Luxembourg/W1 - actuarial science/Project/Report/correlations-flop10.png>]
-<eda.png, id=118, 1078.0275pt x 746.79pt>
+ [4 </Users/barbaragendron/Desktop/Mines_Nancy/3A_Luxembourg/W1 - actuarial science/Project/Report/decision-tree-fit.png>]
+<eda.png, id=147, 1078.0275pt x 746.79pt>
 File: eda.png Graphic file (type png)
 <use eda.png>
-Package pdftex.def Info: eda.png  used on input line 208.
+Package pdftex.def Info: eda.png  used on input line 228.
 (pdftex.def)             Requested size: 377.31528pt x 261.3804pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<eda-report.png, id=119, 1376.14125pt x 859.21pt>
+<eda-report.png, id=148, 1376.14125pt x 859.21pt>
 File: eda-report.png Graphic file (type png)
 <use eda-report.png>
-Package pdftex.def Info: eda-report.png  used on input line 216.
+Package pdftex.def Info: eda-report.png  used on input line 236.
 (pdftex.def)             Requested size: 412.84557pt x 257.76498pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 221.
-[4 </Users/barbaragendron/Desktop/Mines_Nancy/3A_Luxembourg/W1 - actuarial science/Project/Report/decision-tree-fit.png>] [5 </Users/barbaragendron/Desktop/Mines_Nancy/3A_Luxembourg/W1 - actuarial science/Project/Report/eda.png>] [6 </Users/barbaragendron/Desktop/Mines_Nancy/3A_Luxembourg/W1 - actuarial science/Project/Report/eda-report.png>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 221.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 241.
+[5] [6 </Users/barbaragendron/Desktop/Mines_Nancy/3A_Luxembourg/W1 - actuarial science/Project/Report/eda.png> </Users/barbaragendron/Desktop/Mines_Nancy/3A_Luxembourg/W1 - actuarial science/Project/Report/eda-report.png>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 241.
  (/Users/barbaragendron/Desktop/Mines_Nancy/3A_Luxembourg/W1 - actuarial science/Project/Report/insuranceDataReport.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 221.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 221.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 241.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 241.
 Package rerunfilecheck Info: File `insuranceDataReport.out' has not changed.
-(rerunfilecheck)             Checksum: 27717C818241480687F38906DED34BDF;799.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 221.
+(rerunfilecheck)             Checksum: 23A8D81EA8EF98DA4EC16F6EB527902B;1073.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 241.
  ) 
 Here is how much of TeX's memory you used:
- 11198 strings out of 480608
- 168969 string characters out of 5903630
+ 11207 strings out of 480608
+ 169108 string characters out of 5903630
  648523 words of memory out of 5000000
- 26811 multiletter control sequences out of 15000+600000
+ 26816 multiletter control sequences out of 15000+600000
  584409 words of font info for 60 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,12n,45p,1016b,362s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}</usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmro10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmtt12.pfb>
-Output written on "/Users/barbaragendron/Desktop/Mines_Nancy/3A_Luxembourg/W1 - actuarial science/Project/Report/insuranceDataReport.pdf" (7 pages, 2470339 bytes).
+ 41i,12n,45p,1016b,351s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}</usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmro10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmtt12.pfb>
+Output written on "/Users/barbaragendron/Desktop/Mines_Nancy/3A_Luxembourg/W1 - actuarial science/Project/Report/insuranceDataReport.pdf" (7 pages, 2481620 bytes).
 PDF statistics:
- 191 PDF objects out of 1000 (max. 8388607)
- 154 compressed objects within 2 object streams
- 29 named destinations out of 1000 (max. 500000)
- 124 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 221 PDF objects out of 1000 (max. 8388607)
+ 182 compressed objects within 2 object streams
+ 33 named destinations out of 1000 (max. 500000)
+ 156 words of extra memory for PDF output out of 10000 (max. 10000000)
 

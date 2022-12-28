@@ -131,13 +131,33 @@ Amongst the 18 features given to describe each policyholder, all are not bound t
 
 \section{Brief description of the models used} \label{models}
 
-This part gives short descriptions of the selected machine learning models for this analysis. Four models will be covered: logistic regression, decision tree classifier, random forest classifier and XGBoost. The task we need to perform here is a \textbf{binary classification}, which is usually handled by such models. 
+This part gives short descriptions of the selected machine learning models for this analysis. The task we need to achieve here is a \textbf{binary classification} (claim or no claim), which is usually handled by the four models to be covered. In order to cover a relevant panel of methods, the following models have been chosen because of their simplicity of structure, their explainability and/or the popularity of such approaches.
 
-\begin{figure}
+\subsection{Logistic regression}
+
+Logistic regression is a type of statistical model that is used to predict the probability of an event occurring. Thus, it is a binary classifier. The outcome is modeled as a function of the features which are used to make the prediction of the claim occurence. The term \textsl{logistic} simply refers to the shape of the function used to predict the outcome. Let $f$ be such function and $x$ the representation of the features, the outcome has the following form:
+\begin{equation*}
+    f(x) = \dfrac{1}{1+e^{-x}}
+\end{equation*}
+
+\subsection{Decision tree classifier}
+
+A decision tree classifier is a type of machine learning algorithm that uses a tree-like model to make predictions based on the characteristics or features of an input sample. It works by considering each feature in turn and asking a series of questions about the data, with the goal of identifying the feature or combination of features that best splits the data into classes in a way that maximizes the prediction accuracy. After fitting a decision tree classifier on the data, it is possible to plot the decision tree as it is represented in figure \ref{fig:decision-tree}. For example, this model gives the highest probability of having a claim (0.86) for a driver with less than 10 years of driving experience, who does not own the vehicle and whose vehicle was marketed before 2015.
+
+\begin{figure}[h!]
     \centering
     \includegraphics[width=\textwidth]{decision-tree-fit.png}
     \caption{A representation of the decision tree classifier. A positive prediction (1) tend to be green whereas a negative (0) one tend to be blue.}
+    \label{fig:decision-tree}
 \end{figure}
+
+\subsection{Random forest classifier}
+
+This model is a logical extension of the previous one, in the sense that it contains several decision trees with random initialization. A random forest classifier is often able to make more accurate predictions because it combines the predictions of multiple decision trees, which reduces the variance of the model and helps it to better generalize to new data. 
+
+\subsection{XGBoost}
+
+Finally, XGBoost (eXtreme Gradient Boosting) is a popular and powerful machine learning algorithm. It works by training multiple decision trees in a sequence - contrary to the random forest classifier which train them in parallel, with each tree attempting to correct the errors made by the previous tree. The final model is a weighted average of all the individual decision trees.
 
 
 % -------------------    RESULTS    -------------------- % 

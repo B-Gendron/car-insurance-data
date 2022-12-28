@@ -253,11 +253,13 @@ INPUT /usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmbx10.pfb
 INPUT /usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmbx12.pfb
 INPUT /usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb
 INPUT /usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmmi10.pfb
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmmi8.pfb
 INPUT /usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmr10.pfb
 INPUT /usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmr12.pfb
 INPUT /usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmr17.pfb
 INPUT /usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmri10.pfb
 INPUT /usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmro10.pfb
 INPUT /usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmsy10.pfb
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmsy8.pfb
 INPUT /usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmtt10.pfb
 INPUT /usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmtt12.pfb

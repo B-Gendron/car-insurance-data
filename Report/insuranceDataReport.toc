@@ -8,5 +8,9 @@
 \contentsline {subsection}{\numberline {2.3}Remaining anomalies in the data}{3}{subsection.2.3}%
 \contentsline {subsection}{\numberline {2.4}Select only the relevant features}{3}{subsection.2.4}%
 \contentsline {section}{\numberline {3}Brief description of the models used}{3}{section.3}%
-\contentsline {section}{\numberline {4}Analysis of the results and conclusion}{4}{section.4}%
-\contentsline {section}{\numberline {A}Appendix}{4}{appendix.A}%
+\contentsline {subsection}{\numberline {3.1}Logistic regression}{4}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Decision tree classifier}{4}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Random forest classifier}{4}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}XGBoost}{5}{subsection.3.4}%
+\contentsline {section}{\numberline {4}Analysis of the results and conclusion}{5}{section.4}%
+\contentsline {section}{\numberline {A}Appendix}{5}{appendix.A}%
