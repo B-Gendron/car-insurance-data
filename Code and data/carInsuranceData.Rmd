@@ -41,6 +41,8 @@ summary(data)
 
 ### Histograms
 
+This next cell plot the distribution of each numerical variable using histograms.
+
 ```{r eval=TRUE}
 # separate plot space in 2x3 blocks
 op <- par(mfrow=c(2,3))
@@ -56,6 +58,8 @@ hist(as.numeric(levels(data$OUTCOME))[data$OUTCOME], main = "Outcome", xlab="Val
 
 ### Violin plots
 
+Now, we observe the data distribution of numerical features regarding the outcome value. For this, I use violin plots which is a more detailed version of boxplots that gives the precise distribution of the samples.
+
 ```{r}
 cs <- ggplot(data, aes(as.factor(OUTCOME), CREDIT_SCORE)) + geom_violin(fill="pink") + geom_boxplot(width=0.1) + labs(x="Outcome", y="Credit score")
 am <- ggplot(data, aes(as.factor(OUTCOME), ANNUAL_MILEAGE)) + geom_violin(fill="pink") + geom_boxplot(width=0.1) + labs(x="Outcome", y="Annual  mileage")
@@ -66,6 +70,8 @@ grid.arrange(cs, am, sv, du, pa, ncol=3, nrow=2)
 ```
 
 ## Categorical features
+
+To handle categorical features, the next cell gives the value counts of each category regarding the outcome value, for all the categorical features.
 
 ```{r, fig.width=16, fig.height=8}
 op <- par(mfrow=c(2,3))
@@ -84,6 +90,8 @@ plot(vy, main="Outcome by vehicle year", col=c('turquoise', 'pink'), cex=1.5)
 ```
 
 # Feature engineering
+
+The aim of this step is to identify correlated features, and features that are the most correlated to the outcome in order to perform feature selection. 
 
 ```{r}
 # filter for numeric data
