@@ -91,7 +91,7 @@ plot(vy, main="Outcome by vehicle year", col=c('turquoise', 'pink'), cex=1.5)
 
 # Feature engineering
 
-The aim of this step is to identify correlated features, and features that are the most correlated to the outcome in order to perform feature selection. 
+The aim of this step is to identify correlated features, and features that are the most correlated to the outcome in order to perform feature selection. Let's first have a look at the overall correlations between numerical features using `corrplot()`. 
 
 ```{r}
 # filter for numeric data
@@ -101,7 +101,7 @@ num_data <- data %>% select(where(is.numeric))
 corrplot(cor(num_data), type = "upper", is.corr = FALSE, method = "number", outline = TRUE, diag = FALSE)
 ```
 
-Now, let's have a look the correlations of all the variables with the variable `OUTCOME`. The first step is the perform one-hot encoding on categorical features. Afterwards, it is possible to compute the correlation matrix and select the column (or line, the matrix is symmetric) corresponding to the `OUTCOME` variable. Then, converting this column to a data frame, it is possible to display the correlation values by decreasing order of their absolute value. This way, the higher is the feature in the list, the more correlated to `OUTCOME`.
+Now, let's have a look at the correlations of all the variables with the variable `OUTCOME`. The first step is the perform one-hot encoding on categorical features. Afterwards, it is possible to compute the correlation matrix and select the column (or line, the matrix is symmetric) corresponding to the `OUTCOME` variable. Then, converting this column to a data frame, it is possible to display the correlation values by decreasing order of their absolute value. This way, the higher is the feature in the list, the more correlated to `OUTCOME`.
 
 ```{r, echo=TRUE, warning=FALSE, message=FALSE}
 # Compute the list of correlation values
@@ -143,6 +143,8 @@ summary(data_processed)
 
 ## Prepare data for model training and evaluation
 
+The next cell processes the train/test split, keeping 20% of the processed dataset for testing.
+
 ```{r}
 set.seed(42) # set random seed for reproducibility
 
@@ -157,32 +159,44 @@ test = data_processed[-trainIndex ,]
 ### 1) Logistic regression
 
 ```{r}
+# Train the model 
 logreg <- glm(OUTCOME~., data=train, family=binomial)
-summary(logreg)
+
+# Compute the predictions
 proba_logreg <- predict(logreg, newdata=test, type="response")
 pred_logreg <- ifelse(proba_logreg<0.5, 0, 1)
 pred_logreg <- factor(pred_logreg)
+
+# Store the confusion matrix and other metrics
 MC_logreg <- confusionMatrix(as.factor(test$OUTCOME), pred_logreg)
-MC_logreg
 ```
 
 ### 2) Decision Tree Classifier
 
 ```{r fig.align='center'}
+# Train the model
 decision_tree <- rpart(OUTCOME~., data=train)
 rpart.plot(decision_tree)
 ```
 
 ```{r}
+# Compute the predictions
 pred_tree <- predict(object=decision_tree, newdata=test, type="class")
+
+# Store the confusion matrix and other metrics
 MC_tree <- confusionMatrix(test$OUTCOME, pred_tree)
 ```
 
 ### 3) Random Forest Classifier
 
 ```{r}
+# Train the model
 rf <- randomForest(as.factor(OUTCOME)~., data=train, proximity=TRUE)
+
+# Compute the predictions
 pred_rf <- predict(rf, test)
+
+# Store the confusion matrix and other metrics
 MC_rf <- confusionMatrix(test$OUTCOME, pred_rf)
 ```
 
@@ -231,6 +245,7 @@ xgbcv <- xgb.cv(data = dtrain, nrounds = 100,
 Let's train the XGBoost model and evaluate it on the test set in order to display evaluation metrics:
 
 ```{r}
+# Train the model
 xgb1 = xgb.train(data = dtrain, 
                  max.depth = 2, 
                  eta = 1, 
@@ -239,9 +254,11 @@ xgb1 = xgb.train(data = dtrain,
                  objective = "binary:logistic", 
                  verbose = 1)
 
+# Compute the predictions
 xgbpred1 <- predict(xgb1,dtest)
 xgbpred_res1 <- as.numeric(xgbpred1 > 0.5,1,0)
 
+# Store the confusion matrix and other metrics
 MC_xgb = confusionMatrix(as.factor(xgbpred_res1), as.factor(ts_label))
 MC_xgb
 ```
