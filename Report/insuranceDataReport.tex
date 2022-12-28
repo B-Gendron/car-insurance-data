@@ -165,18 +165,20 @@ Finally, XGBoost (eXtreme Gradient Boosting) is a popular and powerful machine l
 
 \section{Analysis of the results and conclusion} \label{results}
 
+Before going through the models evaluation, let's define some practical conventions. In the following, "positive" and "1" refer to the outcome \textsl{having a claim}, whereas "negative" and "0" refer to the outcome \textsl{no claim}. 
+
 \subsection{Training and testing processes}
 
 As the dataset contains the {\tt OUTCOME} value, the binary classficiation task is learnt by the models using \textbf{supervised learning}. The term \textsl{labelled dataset} is therefore used. In supervised learning, the training process involves using the labeled dataset to teach a model to make predictions. Then, to evaluate the correctness of such predictions, we reserve a part of the dataset for the test procedure. The principle is to predict the labels of this test set, in order to compare these predictions with the actual values. The aim of the whole process is to get insights about the model performances on unseen data, which is precisely the use-case for the insurance company.\\
 \\
 \noindent From the point of view of the insurance company, some prediction mistakes are more serious than others. Indeed, it is no big deal to predict that the policyholder will have a claim if he/she does not have one, but it is much more annoying to underestimate the probability of the claim so that it occurs without having been foreseen! It is precisely the situation we want to aviod. Amongst all the classification metrics this part will cover in the next section, it is the number of \textbf{false negatives}.
 
-\subsection{Confusion matrices and evaluation metrics}
+\subsection{Confusion matrix and evaluation metrics}
 
+To evaluate the performances of models on a binary classification task, a broadly used tool is the \textbf{confusion matrix}. For the four selected models, such matrices are given in figure \ref{fig:matrix}. The figures in the diagonal give the number of correctly predicted samples, whereas the two other figures give the number of misclassifications. The \textcolor{red}{red} figures are the false negatives: the policyholders were predicted to not have claim, but they actually had one.
 
-
-\begin{center}
-    \begin{figure}[h!]
+\begin{figure}[h!]
+    \centering 
 \begin{tabular}{cc|cc}
     \multicolumn{1}{c}{} &\multicolumn{1}{c}{} &\multicolumn{2}{c}{Ref.} \\ 
     \multicolumn{1}{c}{} & 
@@ -185,8 +187,8 @@ As the dataset contains the {\tt OUTCOME} value, the binary classficiation task 
     \multicolumn{1}{c}{1} \\ 
     \cline{2-4}
     \multirow[c]{2}{*}{\rotatebox[origin=tr]{90}{Pred.}}
-    & 0  & 1485 & 193   \\[1.5ex]
-    & 1  & 236   & 531 \\
+    & 0  & 1008 & \textcolor{red}{122}   \\[1.5ex]
+    & 1  & 153   & 347 \\
     \cline{2-4}
     \multicolumn{1}{c}{} &\multicolumn{1}{c}{} &\multicolumn{2}{c}{} \\
     \multicolumn{4}{c}{\textbf{\enspace Logistic regression}}
@@ -200,8 +202,8 @@ As the dataset contains the {\tt OUTCOME} value, the binary classficiation task 
     \multicolumn{1}{c}{1} \\ 
     \cline{2-4}
     \multirow[c]{2}{*}{\rotatebox[origin=tr]{90}{Pred.}}
-    & 0  & 1484 & 194   \\[1.5ex]
-    & 1  & 255   & 512 \\
+    & 0  & 999 & \textcolor{red}{131}   \\[1.5ex]
+    & 1  & 169   & 331 \\
     \cline{2-4}
     \multicolumn{1}{c}{} &\multicolumn{1}{c}{} &\multicolumn{2}{c}{} \\
     \multicolumn{4}{c}{\textbf{\enspace Decision tree}}
@@ -215,8 +217,8 @@ As the dataset contains the {\tt OUTCOME} value, the binary classficiation task 
         \multicolumn{1}{c}{1} \\
         \cline{2-4}
         \multirow[c]{2}{*}{\rotatebox[origin=tr]{90}{Pred.}}
-        & 0  & 1461 & 217   \\[1.5ex]
-        & 1  & 214   & 553 \\
+        & 0  & 995 & \textcolor{red}{135}   \\[1.5ex]
+        & 1  & 133   & 367 \\
         \cline{2-4}
         \multicolumn{1}{c}{} &\multicolumn{1}{c}{} &\multicolumn{2}{c}{} \\
         \multicolumn{4}{c}{\textbf{\enspace Random forest}}
@@ -230,31 +232,33 @@ As the dataset contains the {\tt OUTCOME} value, the binary classficiation task 
         \multicolumn{1}{c}{1} \\ 
         \cline{2-4}
         \multirow[c]{2}{*}{\rotatebox[origin=tr]{90}{Pred.}}
-        & 0  & 1484 & 255  \\[1.5ex]
-        & 1  & 194   & 512 \\
+        & 0  & 1022 & \textcolor{red}{160}  \\[1.5ex]
+        & 1  & 108   & 340 \\
         \cline{2-4}
         \multicolumn{1}{c}{} &\multicolumn{1}{c}{} &\multicolumn{2}{c}{} \\
         \multicolumn{4}{c}{\textbf{\enspace XGBoost}}
         \end{tabular}
 \caption{\centering Confusion matrices for the four models. 0 corresponds to "no claim".}
+\label{fig:matrix}
     \end{figure}
-    \end{center}
+
+\noindent From this matrix, it is possible to compute several metrics, such as those reported in table \ref{metrics}. Here, the metrics were selected in order to fit the the use-case requirements (check for false negatives rate). \textbf{Accuracy} is simply the proportion of correct predictions. \textbf{Sensitivity} is the proportion of positive outcomes that have been correctly predicted. \textbf{Specificity} is the same thing applied to negative outcomes. \textbf{False negative rata} is the number of false negative over the total number of positives samples. We want all these metrics as close to 1 as possible, except for the false negative rate which should be as small as possible.
 
 \rowcolors{2}{white}{white}
 \begin{table}[h!]
-    \begin{tabular}[t]{|c|ccccc|}
+    \begin{tabular}[t]{|c|cccc|}
         \rowcolor{orange!30}
 \hline
-\textbf{Model} & \textbf{Accuracy} & \textbf{Sensitivity} & \textbf{Specificity} & \textbf{PPV} & \textbf{NPV} \\
+\textbf{Model} & \textbf{Accuracy} & \textbf{Sensitivity} & \textbf{Specificity} & \textbf{False neg.} \\
 \hline
-Logistic regression         & \underline{0.8245} & 0.8629 & \underline{0.7334} & \underline{0.8850} & 0.6923 \\
-Decision Tree Classifier    & 0.8164          & 0.8534 & 0.7252 & 0.8844 & 0.6675 \\
-Random Forest Classifier    & \underline{0.8245} & \underline{0.8719} & 0.7206 & 0.8725 & 0.7197 \\
-XGBoost                     & 0.8164          & 0.8844 & 0.6675 & 0.8534 & \underline{0.7252} \\
+Logistic regression         & 0.8313             & 0.8682             & \underline{0.7399} & \underline{0.2601} \\
+Decision Tree Classifier    & 0.8160             & 0.8553             & 0.7165             & 0.2835 \\
+Random Forest Classifier    & \underline{0.8356} & 0.8821             & 0.7311             & 0.2681 \\
+XGBoost                     & 0.8356             & \underline{0.9044} & 0.6800             & 0.3200 \\
 \hline
     \end{tabular}
 \centering
-\caption{A sum-up table of the classification metrics for each model. PPV stands for Predicted Positive Values and NPV stands for Negative Predicted Values.}
+\caption{A sum-up table of the classification metrics for each model. For each metric, the best value is \underline{underlined}.}
 \label{metrics}
 \end{table}%
 
@@ -272,26 +276,26 @@ XGBoost                     & 0.8164          & 0.8844 & 0.6675 & 0.8534 & \unde
 \hline
 \textbf{Variable}           & \textbf{Type}      & \textbf{Value ranges (if meaningful)}     \\
 \hline
-VEHICLE OWNERSHIP   & Binary    & 0 or 1                     \\
-MARRIED             & Binary    & 0 or 1                     \\
-CHILDREN            & Binary    & 0 or 1                    \\
-OUTCOME             & Binary    & 0 or 1                     \\
-AGE                 & Category    & 16-25, 26-39, 40-64, 65+      \\
-GENDER              & Category    & female, male                  \\
-RACE                & Category    & majority, minority            \\
-DRIVING EXPERIENCE  & Category    & 0-9y, 10-19y, 20-29y, 30y+     \\
-EDUCATION           & Category    & high school, none, university \\
-INCOME              & Category    & middle class, poverty, upper class, working class \\
-VEHICLE TYPE        & Category    & sedan, sports car             \\
-VEHICLE YEAR        & Category    & after 2015, before 2015       \\
-CREDIT SCORE        & Float     & From 0.0534 to 0.9608       \\
-ID                  & Integer   & --                \\
-POSTAL CODE         & Integer   & --             \\ 
-ANNUAL MILEAGE      & Integer   & From 2000 to 22000               \\ 
+{\tt VEHICLE\_OWNERSHIP}   & Binary    & 0 or 1                     \\
+{\tt MARRIED}             & Binary    & 0 or 1                     \\
+{\tt CHILDREN}            & Binary    & 0 or 1                    \\
+{\tt OUTCOME}             & Binary    & 0 or 1                     \\
+{\tt AGE}                 & Category    & 16-25, 26-39, 40-64, 65+      \\
+{\tt GENDER}              & Category    & female, male                  \\
+{\tt RACE}                & Category    & majority, minority            \\
+{\tt DRIVING\_EXPERIENCE}  & Category    & 0-9y, 10-19y, 20-29y, 30y+     \\
+{\tt EDUCATION}           & Category    & high school, none, university \\
+{\tt INCOME}              & Category    & middle class, poverty, upper class, working class \\
+{\tt VEHICLE\_TYPE}        & Category    & sedan, sports car             \\
+{\tt VEHICLE\_YEAR}        & Category    & after 2015, before 2015       \\
+{\tt CREDIT\_SCORE}        & Float     & From 0.0534 to 0.9608       \\
+{\tt ID}                  & Integer   & --                \\
+{\tt POSTAL\_CODE}         & Integer   & --             \\ 
+{\tt ANNUAL\_MILEAGE}      & Integer   & From 2000 to 22000               \\ 
 
-SPEEDING VIOLATIONS & Integer   & From 0 to 22                   \\
-DUIS                & Integer   & From 0 to 6                      \\ 
-PAST ACCIDENTS      & Integer   & From 0 to 15                    \\  
+{\tt SPEEDING\_VIOLATIONS} & Integer   & From 0 to 22                   \\
+{\tt DUIS}                & Integer   & From 0 to 6                      \\ 
+{\tt PAST\_ACCIDENTS}      & Integer   & From 0 to 15                    \\  
 
 \hline
     \end{tabular}

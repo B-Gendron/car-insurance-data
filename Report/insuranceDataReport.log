@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.5.12)  28 DEC 2022 14:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.5.12)  28 DEC 2022 16:21
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -695,65 +695,70 @@ File: decision-tree-fit.png Graphic file (type png)
 Package pdftex.def Info: decision-tree-fit.png  used on input line 150.
 (pdftex.def)             Requested size: 455.24411pt x 279.91255pt.
  [4 </Users/barbaragendron/Desktop/Mines_Nancy/3A_Luxembourg/W1 - actuarial science/Project/Report/decision-tree-fit.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 170--173
+Underfull \hbox (badness 10000) in paragraph at lines 172--175
 
  []
 
 
-Overfull \vbox (0.50919pt too high) detected at line 187
+Overfull \vbox (0.50919pt too high) detected at line 189
  []
 
 
-Overfull \vbox (0.50919pt too high) detected at line 202
+Overfull \vbox (0.50919pt too high) detected at line 204
  []
 
 
-Overfull \vbox (0.50919pt too high) detected at line 217
+Overfull \vbox (0.50919pt too high) detected at line 219
  []
 
 
-Overfull \vbox (0.50919pt too high) detected at line 232
+Overfull \vbox (0.50919pt too high) detected at line 234
  []
 
-<eda.png, id=157, 1078.0275pt x 746.79pt>
-File: eda.png Graphic file (type png)
-<use eda.png>
-Package pdftex.def Info: eda.png  used on input line 305.
-(pdftex.def)             Requested size: 377.31528pt x 261.3804pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<eda-report.png, id=158, 1376.14125pt x 859.21pt>
+[5]
+<eda.png, id=166, 1078.0275pt x 746.79pt>
+File: eda.png Graphic file (type png)
+<use eda.png>
+Package pdftex.def Info: eda.png  used on input line 309.
+(pdftex.def)             Requested size: 377.31528pt x 261.3804pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<eda-report.png, id=167, 1376.14125pt x 859.21pt>
 File: eda-report.png Graphic file (type png)
 <use eda-report.png>
-Package pdftex.def Info: eda-report.png  used on input line 313.
+Package pdftex.def Info: eda-report.png  used on input line 317.
 (pdftex.def)             Requested size: 412.84557pt x 257.76498pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 318.
-[5] [6 </Users/barbaragendron/Desktop/Mines_Nancy/3A_Luxembourg/W1 - actuarial science/Project/Report/eda.png>] [7 </Users/barbaragendron/Desktop/Mines_Nancy/3A_Luxembourg/W1 - actuarial science/Project/Report/eda-report.png>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 318.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 322.
+[6] [7 </Users/barbaragendron/Desktop/Mines_Nancy/3A_Luxembourg/W1 - actuarial science/Project/Report/eda.png> </Users/barbaragendron/Desktop/Mines_Nancy/3A_Luxembourg/W1 - actuarial science/Project/Report/eda-report.png>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 322.
  (/Users/barbaragendron/Desktop/Mines_Nancy/3A_Luxembourg/W1 - actuarial science/Project/Report/insuranceDataReport.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 318.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 318.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 322.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 322.
 Package rerunfilecheck Info: File `insuranceDataReport.out' has not changed.
-(rerunfilecheck)             Checksum: 9BAEF0E0840DE3611896009A14C1D80C;1244.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 318.
+(rerunfilecheck)             Checksum: 510397787CE9033762A1A41B704FD32E;1242.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 322.
  ) 
 Here is how much of TeX's memory you used:
- 11268 strings out of 480608
- 169953 string characters out of 5903630
+ 11269 strings out of 480608
+ 169965 string characters out of 5903630
  659264 words of memory out of 5000000
- 26869 multiletter control sequences out of 15000+600000
+ 26870 multiletter control sequences out of 15000+600000
  584409 words of font info for 60 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,13n,45p,1016b,373s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,13n,45p,1016b,362s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}</usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmro10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmtt12.pfb>
-Output written on "/Users/barbaragendron/Desktop/Mines_Nancy/3A_Luxembourg/W1 - actuarial science/Project/Report/insuranceDataReport.pdf" (8 pages, 2485058 bytes).
+Output written on "/Users/barbaragendron/Desktop/Mines_Nancy/3A_Luxembourg/W1 - actuarial science/Project/Report/insuranceDataReport.pdf" (8 pages, 2487300 bytes).
 PDF statistics:
- 239 PDF objects out of 1000 (max. 8388607)
- 199 compressed objects within 2 object streams
+ 242 PDF objects out of 1000 (max. 8388607)
+ 201 compressed objects within 3 object streams
  37 named destinations out of 1000 (max. 500000)
  172 words of extra memory for PDF output out of 10000 (max. 10000000)
 
