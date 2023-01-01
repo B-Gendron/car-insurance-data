@@ -88,7 +88,7 @@ The purpose of this section is to give a more quantitative description of the da
 
 \subsection{Outliers and missing values}
 
-First, it is usual to compute some basic statistics about each feature on the whole data, such as the minimum and the maximum values, the mean and median. This allows to notice rough anomalies, such as a negative age values. In this dataset, it appear that no anomalies of this type were found.\\
+First, it is usual to compute some basic statistics about each feature on the whole data, such as the minimum and the maximum values, the mean and median. This allows to notice rough anomalies, such as a negative age values. In this dataset, it appears that no anomalies of this type were found.\\
 \\
 \noindent Descriptive statistics used for this step can be displayed simply using the function {\tt summary()} in R. They are provided along with the number of NA's values for each feature, which corresponds to missing values (NA stands for \textsl{Not Available}). Here, the features {\tt CREDIT SCORE} and {\tt ANNUAL MILEAGE} respectively have 982 and 957 NA's values. This represents approximately 1\% of the whole data for each variable, that's why we can consider simply delete them. Thus, the remaining dataset contains 8149 rows. 
 
@@ -139,7 +139,9 @@ Amongst the 18 features given to describe each policyholder, all are not bound t
 
 \section{Brief description of the models used} \label{models}
 
-This part gives short descriptions of the selected machine learning models for this analysis. The task we need to achieve here is a \textbf{binary classification} (claim or no claim), which is usually handled by the four models to be covered. In order to cover a relevant panel of methods, the following models have been chosen because of their simplicity of structure, their explainability and/or the popularity of such approaches.
+This part gives short descriptions of the selected machine learning models for this analysis. The task we need to achieve here is a \textbf{binary classification} (claim or no claim), which is usually handled by the four models to be covered. In order to cover a relevant panel of methods, the following models have been chosen because of their simplicity of structure, their explainability and/or the popularity of such approaches.\\
+\\
+\noindent Before going through the models, let's define some practical conventions. In the following, "positive" and "1" refer to the outcome \textsl{having a claim}, whereas "negative" and "0" refer to the outcome \textsl{no claim}. 
 
 \subsection{Logistic regression}
 
@@ -154,8 +156,8 @@ A decision tree classifier is a type of machine learning algorithm that uses a t
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=\textwidth]{decision-tree-fit.png}
-    \caption{A representation of the decision tree classifier. A positive prediction (1) tend to be green whereas a negative (0) one tend to be blue.}
+    \includegraphics[width=\textwidth]{decision-tree.png}
+    \caption{A representation of the decision tree classifier. A positive prediction tend to be pink whereas a negative one tend to be turquoise.}
     \label{fig:decision-tree}
 \end{figure}
 
@@ -172,13 +174,11 @@ Finally, XGBoost (eXtreme Gradient Boosting) is a popular and powerful machine l
 
 \section{Analysis of the results and conclusion} \label{results}
 
-Before going through the models evaluation, let's define some practical conventions. In the following, "positive" and "1" refer to the outcome \textsl{having a claim}, whereas "negative" and "0" refer to the outcome \textsl{no claim}. 
-
 \subsection{Training and testing processes}
 
 As the dataset contains the {\tt OUTCOME} value, the binary classficiation task is learnt by the models using \textbf{supervised learning}. The term \textsl{labelled dataset} is therefore used. In supervised learning, the training process involves using the labeled dataset to teach a model to make predictions. Then, to evaluate the correctness of such predictions, we reserve a part - here 20\% - of the dataset for the test procedure. The principle is to predict the labels of this test set, in order to compare these predictions with the actual values. The aim of the whole process is to get insights about the model performances on unseen data, which is precisely the use-case for the insurance company.\\
 \\
-\noindent From the point of view of the insurance company, some prediction mistakes are more serious than others. Indeed, it is no big deal to predict that the policyholder will have a claim if he/she does not have one, but it is much more annoying to underestimate the probability of the claim so that it occurs without having been foreseen! It is precisely the situation we want to aviod. Amongst all the classification metrics this part will cover in the next section, it is the number of \textbf{false negatives}.
+\noindent From the point of view of the insurance company, some prediction mistakes are more serious than others. Indeed, it is no big deal to predict that the policyholder will have a claim if he/she does not have one, but it is much more annoying to underestimate the probability of the claim so that it occurs without having been foreseen! It is precisely the situation we want to avoid. Amongst all the classification metrics this part will cover in the next section, it is the number of \textbf{false negatives}.
 
 \subsection{Confusion matrix and evaluation metrics}
 
@@ -275,7 +275,7 @@ The accuracies are not great but still satisfying regarding the number of sample
 \\
 \noindent Nevertheless, the false negatives are difficult to handle for all the models. As we can see both on the confusion matrices and on the last column of table \ref{metrics}, the rate varies very little and remains quite high. Moreover, the use of sophisticated models such as XGBoost may not be justified, as it improves accuracy and sensitivity, but seems to damage the false negative rate. Among these models, one can argue that the best choice would be the \textbf{random forest classifier}, as it is a relevant compromise between accuracy and false negative rate. \\
 \\
-\noindent Finally, what we can conclude is than such models are not yet adapted to be deployed in a real-life insurance scenario, as they are likely to underestimate the occurence of a claim. To counter this problem, it might be interesting to find a more balanced data set between the two outcomes. Eventually, the original assumption of a not so unbalanced distribution of values may need to be revisited, as the discrepancy present prevents the model from accurately understanding the case where the policyholder experiences a claim.  
+\noindent Finally, what we can conclude is that such models are not yet adapted to be deployed in a real-life insurance scenario, as they are likely to underestimate the occurence of a claim. To counter this problem, it might be interesting to find a more balanced data set between the two outcomes. Eventually, the original assumption of a not so unbalanced distribution of values may need to be revisited, as the discrepancy present prevents the model from accurately understanding the case where the policyholder experiences a claim.  
 
 \newpage
 \appendix
